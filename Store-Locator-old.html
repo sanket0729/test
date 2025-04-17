@@ -1,0 +1,983 @@
+<style>
+    .search-container {
+        margin-bottom: 20px;
+    }
+    .store-title {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+    .store-list .store {
+        margin-bottom: 20px;
+    }
+    .add-sty {
+        padding:20px;
+        background: white;
+        color: black;
+        text-align: center;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+    .add-sty:hover {
+        transform: scale(1.05);
+    }
+    .filter-shadow {
+        padding:20px;
+        background: #D5F0BC;
+        color: black;
+        text-align: center;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+    .filter-shadow:hover {
+        transform: scale(1.05);
+    }
+    .btn-map {
+        display: inline-block;
+        padding: 8px 15px;
+        background: #008a00;
+        color: white;
+        text-decoration: none;
+        transition: background 0.3s;
+    }
+    .clear-btn{
+        padding: 8px 30px;
+    }
+    .hidden {
+        display: none;
+    }
+    select.form-select {
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    select.form-select:focus {
+        transform: scale(1.05);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+
+<div class="container">
+        <div class=" filter-shadow mb-5">
+            <div class="row">
+                    <div class="col-md-12 mb-12">
+                        <h2 class="store-title mb-0">Store Locator</h2>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-md-4 mb-12">
+                    <div class="search-container">
+                        <input class="form-control" type="text" id="search" placeholder="Search locations...">
+                    </div>
+                </div>
+                <div class="col-md-3 mb-12">
+                    <div class="mb-3">
+                        <select id="stateSelect" class="form-select">
+                            <option value="all">All States</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Odisha">Odisha</option>Tamil Nadu
+                            <option value="TamilNadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="MadhyaPradesh">Madhya Pradesh</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-12">
+                    <div class="mb-3">
+                        <select id="citySelect" class="form-select">
+                            <option value="all">All Cities</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-12">
+                    <a class="btn-map clear-btn" href="#" id="clearButton">Clear Filter </a>
+                </div>
+            </div>
+        </div><br><br>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row store-list">
+                <div class="col-md-4 store" data-state="Gujarat" data-city="Ahmedabad">
+                  <div class="add-sty">
+                      <p>GF 10, Palladium Business Hub, <br>Behind Pantaloons, Motera,<br> Ahmedabad - 382424</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/zpZVuXNdEc1RdUL26" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Gujarat" data-city="Ahmedabad">
+                  <div class="add-sty">
+                      <p>Shop No. 11, Vraj Vihar 5, <br>Prenatirth Derasar Road, <br>Jodhpur Village, Ahmedabad - 380015</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/dknLyNKMcSsKi8Y7A" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Gujarat" data-city="Ahmedabad">
+                  <div class="add-sty">
+                      <p>GF - 96, Shree Krishna Centre, Near Crossword Book store, Navrangpura, Ahmedabad, GJ - 380009</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/M9GMA5rZoNYgzxx47" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Gujarat" data-city="Ahmedabad">
+                  <div class="add-sty">
+                      <p>Shop No 10, Sanvi Nirman Stella, <br>Safal Parisar Rd, next to Marigold, <br>Extension, South Bopal, Ghuma, <br>Ahmedabad, Gujarat 380 058</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/tk3x6tg8LTKPmqmr8" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Gujarat" data-city="Vadodara">
+                  <div class="add-sty">
+                      <p>Ajanta Soc., Leader House, Shop No. 2, Behind Trident Complex, Ellora Park, Vadiwadi, Vadodara - 390023</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/GFUmvUjaFkAq48Mn7" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Gujarat" data-city="Valsad">
+                  <div class="add-sty">
+                      <p>A/2 Smruti APPT, <br>Tithal Road, <br>Valsad 396001, Gujarat</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/ZXTYGZw6yMjvVaZK6" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Gujarat" data-city="Vapi">
+                  <div class="add-sty">
+                      <p>Shop no-6, The Delta co.op.Ho.Ltd, Chharwada road, GIDC,Gunjan, Vapi-396195.Valsad, Gujarat.</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/u7EdbdQsnkpT9kY69" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Aurangabad">
+                  <div class="add-sty">
+                      <p>Shop no. 8 & 9, Motiwala Complex, Akashwani Corner, Jalna Road, <br>Aurangabad-431001</p>
+                      <a class="btn-map" href="https://goo.gl/maps/Fey5zSoDGXQEUxxy5" target="_blank">View Map</a>
+                  </div>
+                </div>
+                
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Aurangabad">
+                  <div class="add-sty">
+                      <p>Showroom no. 02, Building A, Beed Bypass Road, Elite square, Satara village, <br>Aurangabad 431001</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/fSHEjby6PbJCQufe8" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>74/76, Subhadra Mansion, Near Gopi Birla Memorial School, Walkeshwar Road, <br>Mumbai - 6</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/cGa81xi9HcuS4Zx8A" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No 4, Vasani Cottage, Opp Parle Book Centre, D.J.Road, Vile Parle (W), <br>Mumbai - 56</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/24tdutqo7Zo73KmZ7" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No 1, Radha Bhavan, Adenwala Road , Next to 5 Spice , Matunga East, <br>Mumbai : 19</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/BbFapZ9sCfPwkPLV6" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No.1, Eden 2, <br>Hiranandani Garden, <br>Powai Mumbai 400076</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/VmqWNbSe4PsHguth9" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>8B, Annapurna Industrial Estate, 46 Tilak Road, Opp Guru Krupa Hotel, Ghatkopar East, Mumbai : 77</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/24QmKW15Ce6dK15H9" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No. 2, Shyam Vihar, MG Road, opposite Mahavir Sports, Mulund West, Mumbai, Maharashtra 400080</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/KoR63UGok6W5ZAXF9" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No 2, Shankar Darshan, Near Movie Time, Evershine Nagar, Malad (W), <br>Mumbai - 64</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/DXYnHZpx6hdmk5f98" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No. 9, Building No. 3, Takshila CHS, Off Mahakali Caves Road, Andheri (East), Mumbai - 400093</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/6zCN36YrdG8bwsER8" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No 2, Shubh Kamana, 'A' Wing, Near Jain Mandir, Mahavir Nagar, Kandivali(West), Mumbai - 400067</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/1g5Y8wSHfPbAreim6" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No 3, Ratan House, Plot No 264 R R Roy Road, Opp Central Plaza Cinema, Charni Road East, Mumbai, Maharashtra 400004</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/QT1Ly2fLkwZ7A8mZA" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No.7, Krishna Tower, <br>Shanti Park, Jangid Circle, <br>Mira Road – E 401107</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/eoCGmzqYjvJnF8L19" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No. 3, Everest Apartment, JP Rd, Versova, Andheri West, <br>Mumbai, Maharashtra 400061</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/BeHzzQQYHKxB1AVp7" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No.2, Amar Kunj Chs., 1/377, Veer Savakr Marg, Shivaji Park, <br>Dadar (W) - Mumbai - 400028</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/R9xxNf2QoBpkzfzv7" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No.7, Vastu Tower, Film City Road, <br>Opp. Oberoi Mall, Malad (E), <br>Mumbai - 97</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/psjgJR8zau9pt6GN9" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No. 10, Ground flr., Natraj Borivali HSg. Soc., Sodawala Lane, Borivali (West), <br>Mumbai - 400092</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/rFvxQxv38vSDaSL27" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No.2, Nagardas Park, Opp. Chinai College, Old Nagardas Road, Andheri (E) Mumbai - 400064</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/PdkyighLiUbr7pjs6" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No.4, Monarch Nagar CHS LTD, <br>Jb Nagar, Andheri (East) <br>Mumbai-400059</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/TZNVDKa2LSw6cWBv7" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop no.6, Mangalya CHS, Vidyaniketan Marg, MG Road, Goregaon West, <br>Mumbai-400104</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/awZAQitrJaUBBNDa6" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No.73, Krishna Vasant Sagar, Opp. Thakur Mall, Thakur Village, Kandivali E Mumbai - 400101</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/UpxmxercsXsfNFVj9" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No.2, Avighna IX, <br>Dr. Ambedkar Road, Lalbaug, <br>Mumbai - 400012</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/gZgKdw2U7q2TDFna7" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No.6, Sumit Arista, C.S.T. Road, <br>Near Mc Donalds, Kalina Santacruz (E) <br>Mumbai - 400098</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/Nad4uvPihHw9C5gZ6" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No.1, Nav Megdoot Co.op Soc., Opp. Vijay Sales, Linking Road, Khar (W) <br>Mumbai - 400052</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/XvsJyWf1Uyuc1yT46" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Ground Flr, 5 Giridhar Niwas Condominum, Shaheed Bhagat Singh Road, Colaba, <br>Mumbai - 400005</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/spj5EHYqhAvxCtDQ7" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No 3, Shree Sunder Co-Operative Housing Society Ltd, Opp Acharya Garden, Sion Trombay Road, Chembur, <br>Mumbai - 400071</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/sKsoRwFoCmCWzcqQ8" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>No. 5, Parmar Co-operative Housing Society Ltd., Paranjape ‘B’ scheme, Road No.1, <br>Vile Parle (East), Mumbai- 400057</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/SoZWpfCkWgRznYEo6" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Marvel Apt, Shop no 4, Shashtri nagar, Lokhandwala, Andheri west, <br>Mumbai 400053</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/juxkBnc3QHRUfs3G7" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop No4, Achal Giri Co-op Hsg Soc, 150 Feet Road, Padmavati Nagar, Near Maxus Mall, Bhayander (west) - 401101</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/vgwFPJCcHbu4vJR16" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Infiniti Mall Malad, <br>TF333, 3, West, <br>Mumbai, Maharashtra 400064</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/8hzmchE74HxJ5RUo6" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>Shop no. 1, Panchdham CHS, Anand Nagar, Near Jari Mari Garden, Dahisar East. <br>Mumbai 400068</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/zHDEfbhVDdB4rgCBA" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>TTK 15, Next to Juice Bar,3rd floor, R City, <br>LBS Marg, Ghatkopar West, <br>Mumbai - 400086</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/hgWKv5ETELoe4xKb7" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Mumbai">
+                  <div class="add-sty">
+                      <p>164, Ground floor, Plot 162, Batliwala Compound, Pandit Madan Mohan Malviya Marg, Tardeo, Mumbai - 400034</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/pdPVqmzNKG5BLyC88" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="NaviMumbai">
+                  <div class="add-sty">
+                      <p>Shop no.15, Ground floor, <br>Indraprastha Complex, Plot No. 13,14, <br>Vashi Navi Mumbai – 400703</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/1Sk7DEwBe4JrktgN6" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="NaviMumbai">
+                  <div class="add-sty">
+                      <p>Shop no 8, Moreshwar Complex, Sector- 21, Kharghar, Navi Mumbai, <br>Maharashtra - 410210</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/fgJwmsb3eWVQwjJL7" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="NaviMumbai">
+                  <div class="add-sty">
+                      <p>Shop No:9 Ground Floor, Rainbow Apartment, Plot Number:- 39, Sector-19, Airoli, Navi Mumbai, Thane - 400708</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/MMbeFzVVXTzr2jbu5" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="NaviMumbai">
+                  <div class="add-sty">
+                      <p>Shop no. 12, Neelkanth Darshan, Panvel-Sion Highway, Opp. Orion Mall, <br>Panvel- 410206.</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/PubzCRWagRrp3gNt5" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="NaviMumbai">
+                  <div class="add-sty">
+                      <p>Shop No:23, Floor No: Ground Floor, Building Name: Safal Park C.H.S, Block Sector: <br>Nerul East, Navi Mumbai-400706</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/8uZGGqfDZMLV8Bjq9" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="NaviMumbai">
+                  <div class="add-sty">
+                      <p>31, Bhagwati Imperia, Plot No 01, Sector 09, Ulwe Navi Mumbai, Panvel, <br>Raigad, 410206</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/nf8v2FrePmyrfpAS9" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="NaviMumbai">
+                  <div class="add-sty">
+                      <p>Platinum Liviano, Shop No 03, Sector- 35, Kamothe- 410209, <br>Navi Mumbai</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/nmBtYujo6PVmQSP46" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Palghar">
+                  <div class="add-sty">
+                      <p>Shop. No. 20, Gopani Centre, Opp. Naturals Ice-Cream, Gokul Township, Agashi Road, Virar West, Pin Code 401303</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/6meYfVTWTJ38eW4U9" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Palghar">
+                  <div class="add-sty">
+                      <p>Shop No. 7 & 8, Swarnhans Tower, <br>2nd Road, Shri Prastha, <br>Nallasopara West, Pin Code 401203</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/8wFpsLDtAaZSWY2c6" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Thane">
+                  <div class="add-sty">
+                      <p>Shop No 9, Gagangiri Society, Near Prashant Corner, Panchpakhadi, <br>Thane (W) - 400603</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/WRWZNz65F54yAJw97" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Thane">
+                  <div class="add-sty">
+                      <p>Shop No.15, A Wing, Rustomjee Azziano, Majiwada, Nr Rustomjee international school, Thane (W) - 400601</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/JYAu2t9byCuwFtFt7" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Thane">
+                  <div class="add-sty">
+                      <p>Shop no 3, Laxmi sagar co op Hsg Soc, opp Shah building, opp HDFC bank, <br>Dombivli East 421201</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/yMKMe78ttuhMFMea9" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Thane">
+                  <div class="add-sty">
+                      <p>Shop no 18, Infinity, Ashar Residency, <br>Pokhran Road No.2, <br>Thane West 400610</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/zreMJJBvwstnYwoH9" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Thane">
+                  <div class="add-sty">
+                      <p>Shop number A/2, Jayraj Nagar CHSL, 100 Feet Road,Opposite Manav Mandir , <br>Samta nagar , Vasai West, <br>Dist Palghar, Maharashtra - 401202</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/mrkX7e5VsKBuuDi6A" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Thane">
+                  <div class="add-sty">
+                      <p>Shop no 6, Moreshwar Apartment, Opp Kalwa Police Station, Old Mumbai Pune Road, Parsik Nagar, Kalwa West, Thane 400605</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/HnvCY1jRoGQ7XmhG7" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Thane">
+                  <div class="add-sty">
+                      <p>Shop no 9 ground floor Penrose CHS LTD, Near Hiranandani foundation school, Hiranandani estate patlipada <br>Thane west 400607</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/HnvCY1jRoGQ7XmhG7" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Thane">
+                  <div class="add-sty">
+                      <p>KS11, Second Floor, <br>Viviana Mall, <br>Thane (W) - 400601</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/UUtbLAhCLFPTv43o8" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Thane">
+                  <div class="add-sty">
+                      <p>Shop No 15, Wadhwa Platina CHS, Beside Gaurav Sweets, Kolshet Road, <br>Thane 400607</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/nNcLGxXGXAUGZLAs8" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Thane">
+                  <div class="add-sty">
+                      <p>Shop No. 2, Sai Palace, Madhuban chowk, Near A1 panipuri, Gol Maidan, <br>Ulhasnagar - 421001</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/hmgu379qNpFts9Hx6" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+
+
+
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Nagpur">
+                  <div class="add-sty">
+                      <p>Opposite Dulhan sarees , Near keteshwar Mandir, Jagnath Road, Gandhibagh , <br>Nagpur 440002</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/NhgtLhyzS4FSPptH6" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Nagpur">
+                  <div class="add-sty">
+                      <p>Ground floor, 179B, Mangalam arcade, Ram Nagar Road, NEAR BARALE BAR, Shivaji Nagar, Nagpur, Maharashtra, 440010</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/BDacEBNVTevzStDB8" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Nashik">
+                  <div class="add-sty">
+                      <p>Shop No. 1 Ramrajya Apartment, Plot No. 8, Samarth Nagar, Nashik 422007</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/nEc3Xhwpsrr99mwk8" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Nashik">
+                  <div class="add-sty">
+                      <p>Shop No 9, Vandana Park, Indira Nagar, Near Bapu Bunglow , Nashik - 422009</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/hDXHrPWQuMEZEzmL9" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Pune">
+                  <div class="add-sty">
+                      <p>Shop No.8, Windwards, E - Wing, CTS No. 1029+1030, Near Chattrapati Chowk, Wakad, Pune - 411057</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/J4zBPuaULRuRMMNA7" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Pune">
+                  <div class="add-sty">
+                      <p>Ground Floor, Shop No.1 & 2, Riddhi Enclave, Nr. Mughlai Zaika, Anand Vidya Niketan School Road, Viman Nagar, Pune - 411014</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/khhXb5rGR76afMP98" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Pune">
+                  <div class="add-sty">
+                      <p>Shop 7, Building 1, Gitanjali Kunj, <br>Opp Nehru Memorial Hall, <br>Pune 411001</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/HVVuy5piiNYiRng46" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Pune">
+                  <div class="add-sty">
+                      <p>16 C, Gera Park View, Next to Gera Emerald City Road, EON Free Zone, <br>Kharadi, 411014</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/LZMFjVGmb4dY7h7s9" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Pune">
+                  <div class="add-sty">
+                      <p>Shop No 6, Ground Flr, Greenvalley Regency Arc., Kedari Petrol Pump Road, <br>Wanwori Pune - 411040</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/QidG9KjF7E7dt6od9" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Pune">
+                  <div class="add-sty">
+                      <p>Upper Ground Floor, Shop No 13, Gandharva Galaxia, off, Magarpatta Rd, Hadapsar, <br>Pune, Maharashtra 411028</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/L4uT9AF9Sjw7dpZ29" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Pune">
+                  <div class="add-sty">
+                      <p>Shop No.2, Rajmata Apartment CHS, Maharshi Nagar, Bibwewadi-Kondhwa Road, Bibwewadi, Pune - 411 037</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/qpSyp8vPeSEMrp949" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Maharashtra" data-city="Pune">
+                  <div class="add-sty">
+                      <p>Unit No D-11, Ground Floor, D Block, Destination Hinjewadi, S.No.221/A6, Next To Godrej 24, Hinjewadi, Haveli, Pune, 411057</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/6YPURahZjJjTJuNu6" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Gujarat" data-city="Silvassa">
+                  <div class="add-sty">
+                      <p>Plot No . 163/P, Near Hotel Natraj, <br>Naroli Road, Silvassa, <br>Dadra And Nagar Haveli - 396230</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/3ToRG5PrzszcxqWi8" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                  <div class="add-sty">
+                      <p>No. 1705, 19th Main, <br>Sector 2, HSR Layout, <br>Bangalore - 560102</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/wNaDn8ybwMYFEf1w5" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                  <div class="add-sty">
+                      <p>62, 7th cross, 24th main, JP Nagar, 2nd Phase, opp.to R V Dental College, <br>Bangalore - 560078</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/oe3WJmGAYQEKSnEt5" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                  <div class="add-sty">
+                      <p>100/1B, 10th Cross 2nd main, <br>Indiranagar 1 Stage <br>Bangalore 560038</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/mFGv7TCnTaqduVhA6" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                  <div class="add-sty">
+                      <p>No. 1065B, 5th Cross, Vijaya Bank Layout, Bannerghatta Road, <br>Bangalore - 560076</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/HPkf9cyUyTYocGbHA" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                  <div class="add-sty">
+                      <p>No.2, Ground Floor, 15 Th A Cross, Bhuvaneshwari Nagar, Opp Coffee Board Park , Bhuvaneshwari Nagar, Hebbal Kempapura, Bengaluru - 560024</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/Sv9cbaM5cyRgZgRk9" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>Shop No.4, S.H.R. Complex, Siddhapura, Whitefield Main Road, Whitefield <br>Banglore - 560066</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/T4nkBCwBw1KDTDrW8" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>143/A, 60 Feet Rd., 5 th Block, <br>Next to Anand Sweet, Koramangala, <br>Bengaluru, Karnatak, 560095</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/WjyuxPhBvyDFt5Wm7" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>No. 1134, Shoba Club House Road, Green Glen Layout, Bellandur - <br>Bangalore - 560103</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/p8yN9YmT8HVXhtGq8" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>84/B1, Sriram Arcade, <br>Seegehali Kadugodi, <br>Bangalore - 560067</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/ywQ6snMG67NRpp686" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>No. 72 Channasandra Village, BEML 5th Stage, Rajarajeshwari Nagar, <br>Bangalore - 560098</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/FTver7VL3Q2YBPxY8" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>278, 1st Cross, Hoodi, Opp. <br>Ganesha Temple, Mahadevpura, <br>Bangalore 560048</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/AyDE4ac5JjnzaJHG6" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>15, 1st Floor, 1st A main road, MIG, <br>Yelahanka New Town, <br>Yelahanka, Bengaluru, <br>Karnataka 560064</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/XtKqo4kWMGFvUW8p7" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>Shop No. G 8 & 9, Petra Complex, <br>Hennur Main Road, Kothanur, <br>Bengaluru - 560077</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/qDiSbmxZS8zwss556" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>V141/1, Shop No. 7 & 8, Ground Floor, Besides HP Petrol Bunk, Kodathi Gate, Sarjapur Main Road, Bangalore - 560035</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/x9T9XTTzo7zYW3ff9" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>No.609, 80ft Attimabbe Raod, Next to Devegowda Petrol Bunk,Next To Trends, Katriguppe, Banashankari III Stage, <br> Bangalore - 560085</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/feZVcEcd8hFV2ps47" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>Shop no.1023, 1st Cross, Ananthnagar Main Road Phase 2,Kammasandra Electronic City Phase 2, Near Vishal Mega Mart, <br> Bengaluru-560100</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/Qf3uPjgm5BzhXn5e6" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>#523, Shop no.5, Ground Floor, Prabhavathi Complex, Next to D Mart, Sarjapura, Bangalore - 562125</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/izGEmUQTmKFaHoSKA" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>110/4, Venkata’s Oak Wood Apartment, Ground Floor, Commercial Shop No.1 <br>Near Celebrity Classic Layout <br>Electronic City Phase 1 Bengaluru - 560100</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/SpHG6TQcQPE1kfS47" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>No 67, Noves square, ground floor, Thanisandra Main Road, Chokkanahalli , Bangalore - 560064</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/D1QwGLxFs6nyfoWg9" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Bangalore">
+                    <div class="add-sty">
+                      <p>No.7 & 45, KK Layout, <br>ITI Layout Main Road, Mallathalli, <br>Bangalore-560056</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/w7QaVfJrh8hRRSg77" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Davanagere">
+                    <div class="add-sty">
+                      <p>#457/2 P J Extension, MCC 'A' block 10th Main 8th Cross, Dr Modi Road, Opp. Eye Hospital, Near Gundi Circle, <br>Davanagere-577002</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/C3YmkRJZT6xDc4C67" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Dharwad">
+                    <div class="add-sty">
+                      <p>Old Little Stars Kindergarten School, PB Rd, opp. Modern Hall, Rajatagiri, Gandhinagar, Dharwad, Karnataka 580004</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/9Zmn2tkGK8Adh6ht6" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Mangaluru">
+                    <div class="add-sty">
+                      <p>Door No.3-E-16-1371/9 and 3-E-16-1371/10, Ground floor, city gate Commercial complex, Kadri, Mangalore-575002</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/bBaeFX6WRD5b3wF18" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Mangaluru">
+                    <div class="add-sty">
+                      <p>D no: 6-17-696/6, Ground floor, <br>Lotus Dham , Mannagudda, <br>Mangalore-575003</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/cKd8b9bbFbGeRp5cA" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Mysore">
+                    <div class="add-sty">
+                      <p>#2686/1, 9th Cross, <br>Adipampa Road, VV Mohalla, <br>Mysore 570002</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/4Zi4yiGCwdXBJ1Vs5" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Mysore">
+                    <div class="add-sty">
+                      <p>939, 7th main, <br>New Kantharajurs road, <br>Saraswathipuram Mysore 570009</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/HuUyAHquG69q8Dns8" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Karnataka" data-city="Udupi">
+                    <div class="add-sty">
+                      <p>Anugraha Building, Ground Level, Door No 4-253A7, A8, A9Udupi-Manipal Main Road, Laxmindranagar, Udupi -576102</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/gJ2ZFVE5QZmtiutf7" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-4 store" data-state="Gujarat" data-city="Bardoli">
+                    <div class="add-sty">
+                      <p>Shop No.46, Shukan Residency, <br>Mota Road, Baben, Bardoli, <br>Surat, Gujarat, 394601</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/KPFLksVeSDtCWCg46" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Gujarat" data-city="Gandhinagar">
+                    <div class="add-sty">
+                      <p>Shop No 19, Mapple 99 <br>food county, Gift City, <br>Gandhinagar - 382355</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/X332oJjqznbjRtJQ8" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Gujarat" data-city="Daman">
+                  <div class="add-sty">
+                      <p>Shop no. 6, City Center, Opp Daman Bus stand, Near Indian oil petrol pump, <br>Daman - 396210</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/1xMhWat9SQTZZ2PU8" target="_blank">View Map</a>
+                  </div>
+                </div>
+                <div class="col-md-4 store" data-state="Gujarat" data-city="Navsari">
+                  <div class="add-sty">
+                      <p>Municipal House No 1167/4, Shop No 4, <br>Tulip Apartment - A, Near Parsi Hospital, Navsari, Gujarat, 396445</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/qcXuaEMBBnWMmbtn6" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Gujarat" data-city="Surat">
+                  <div class="add-sty">
+                      <p>G-32, Muktanand Shopping Center, Muktanand Nagar Road, Near Gujarat Gas Circle, Muktanand Nagar, Adajan, <br>Surat, Gujarat, 395009</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/wk7fZa9jaKCnWFZv9" target="_blank">View Map</a>
+                  </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Odisha" data-city="Bhubhaneshwar">
+                    <div class="add-sty">
+                      <p>Ground Floor Shop No. 5, IDCO Plot No. 36/A, Chandaka Industrial Area, Patia Infocity, Bhubaneshwar, Odisha- 751024</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/JoBcTGcJPwWxng6j9" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="TamilNadu" data-city="Chennai">
+                    <div class="add-sty">
+                      <p>F028, 1st Floor, The Marina mall Old Mahabalipuram Road, Egatoor, <br>Navalur, Tamil Nadu 603103</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/Gtm589giFwfzUReR8" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-4 store" data-state="Telangana" data-city="Hyderabad">
+                    <div class="add-sty">
+                      <p>Plot No. 278, Vivekananda Nagar, Sangeet Nagar Society, Kukatpally, <br>Hyderabad - 72</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/pPU4AgzDziMEDFWK9" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Telangana" data-city="Hyderabad">
+                    <div class="add-sty">
+                      <p>G1/G2, Tavisha Arcade, Admiral Katari Marg, 5th Avenue Bakery Road, Defence Colony, Sainikpuri, Hyderabad - 500094</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/SwyAxqp1J76e8hd17" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Telangana" data-city="Hyderabad">
+                    <div class="add-sty">
+                      <p>Shop No 12, AKM Dharma Rao Signature, Survey No 111, Behind Madinaguda Bus Stop, Serilingampally, Hyderabad - 500049</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/seg97W1rQvmZtySG7" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Telangana" data-city="Hyderabad">
+                    <div class="add-sty">
+                      <p>Plot no 236, Raja Rajeswarai Nagar, <br>Kondapur, Hyderabad <br>Telangana 500084</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/qh5bfdoG5fr2HBUg9" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Telangana" data-city="Hyderabad">
+                    <div class="add-sty">
+                      <p>Plot No. 496 , Pragathi Nagar, <br>Jntu, Hyderabad <br>Telangana 500090</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/gjGB9yshjo2EEe618" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Telangana" data-city="Hyderabad">
+                    <div class="add-sty">
+                      <p>Serial No. 11/4, Plot No. 4/3-A&B to 4/6-A&B, Khanamet, Serlingampally Circle No 20, Hyderabad, Telangana-500084</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/F2yV5PgbajQijEP79" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 store" data-state="Telangana" data-city="Karur">
+                    <div class="add-sty">
+                      <p>88, Covai Road, NRMP Street, <br>Karur – (Erode), <br>Tamilnadu 639002</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/7SuCXTyY3kjdQ57N6" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Telangana" data-city="Sangareddy">
+                    <div class="add-sty">
+                      <p>25-35/3/D, Sekhars Arcade, Ramchandra Reddy Nagar,Ramchandra Puram, Sangareddy, Telangana, 502032</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/8yewSxMRv6FNhj756" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-md-4 store" data-state="MadhyaPradesh" data-city="Indore">
+                    <div class="add-sty">
+                      <p>Shop No 17, The Zodiac, <br>Scheme No 140, Pipliyahana, <br>Indore, 452016</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/x94PYScLkho8pbar9" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="MadhyaPradesh" data-city="Indore">
+                    <div class="add-sty">
+                      <p>UG 6, Palasia Tower, <br>1 Racecourse Road, <br>Indore - 452001</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/ZGeWPnjH7zdnhkTj8" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="MadhyaPradesh" data-city="Indore">
+                    <div class="add-sty">
+                      <p>76 Bank Colony, <br>Narendra Tiwari Marg , <br>Indore 452009</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/JwNaRi1jLeFRnPEX7" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="col-md-4 store" data-state="Rajasthan" data-city="Jaipur">
+                    <div class="add-sty">
+                      <p>Ground Floor, 1, Trimurti Aurum, Tilak Marg, <br>C Scheme, Jaipur, <br>Rajasthan 302005</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/S1xoFJCn6zb1zrsSA" target="_blank">View Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 store" data-state="Rajasthan" data-city="Jaipur">
+                    <div class="add-sty">
+                      <p>Ward 24, E 17, 1, Gautam Marg, <br>Vaishali Nagar, Jaipur, <br>Rajasthan 302021</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/FXFhMDiXHEMPfcy89" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 store" data-state="Kerala" data-city="Kochi">
+                    <div class="add-sty">
+                      <p>Door No. 64/3062 & 3063, Kathrikadavu Jn, Thammanam-Pullepady Road, Kaloor, <br>Kochi, Kerala 682017</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/h6DyWUvTEXrQGMqg8" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 store" data-state="Chhattisgarh" data-city="Raipur">
+                    <div class="add-sty">
+                      <p>Ground Floor Shop No 3, Marine Drive Complex, Shree Mahalaxmi Enterprises, In front Of Telibandha Lake, <br>Raipur (C.G.) 492001</p>
+                      <a class="btn-map" href="https://maps.app.goo.gl/TYhqbDSzRCRjc1ve8" target="_blank">View Map</a>
+                    </div>
+                </div>
+
+
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("search");
+        const stateSelect = document.getElementById("stateSelect");
+        const citySelect = document.getElementById("citySelect");
+        const stores = document.querySelectorAll(".store");
+        
+        const citiesByState = {
+            Maharashtra: ["Mumbai", "NaviMumbai", "Thane", "Pune", "Aurangabad", "Nagpur", "Nashik", "Palghar"],
+            Gujarat: ["Ahmedabad", "Bardoli", "Gandhinagar","Navsari", "Silvassa", "Surat", "Valsad", "Vapi", "Daman"],
+            Karnataka: ["Bangalore", "Dharwad", "Davanagere","Mangaluru", "Mysore", "Udupi"],
+            Odisha: ["Bhubhaneshwar"],
+            TamilNadu: ["Chennai"],
+            Telangana:["Hyderabad", "Karur","Sangareddy"],
+            MadhyaPradesh: ["Indore"],
+            Rajasthan : ["Jaipur"],
+            Kerala :["Kochi"],
+            Chhattisgarh:["Raipur"]
+
+        };
+        
+        function updateCities() {
+            const selectedState = stateSelect.value;
+            citySelect.innerHTML = '<option value="all">All Cities</option>';
+            if (selectedState !== "all" && citiesByState[selectedState]) {
+                citiesByState[selectedState].forEach(city => {
+                    const option = document.createElement("option");
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            }
+            filterStores();
+        }
+
+        function filterStores() {
+            let searchQuery = searchInput.value.toLowerCase();
+            let selectedState = stateSelect.value;
+            let selectedCity = citySelect.value;
+
+            stores.forEach(store => {
+                let state = store.getAttribute("data-state");
+                let city = store.getAttribute("data-city");
+                let textMatch = store.textContent.toLowerCase().includes(searchQuery);
+                let stateMatch = selectedState === "all" || selectedState === state;
+                let cityMatch = selectedCity === "all" || selectedCity === city;
+
+                store.classList.toggle("hidden", !(textMatch && stateMatch && cityMatch));
+            });
+        }
+
+        function clearFilters() {
+            searchInput.value = '';
+            stateSelect.value = 'all';
+            citySelect.innerHTML = '<option value="all">All Cities</option>';
+            filterStores();
+        }
+
+        searchInput.addEventListener("keyup", filterStores);
+        stateSelect.addEventListener("change", updateCities);
+        citySelect.addEventListener("change", filterStores);
+
+        document.getElementById("clearButton").addEventListener("click", function (e) {
+            e.preventDefault();
+            clearFilters();
+        });
+
+        updateCities();
+    });
+    </script>
